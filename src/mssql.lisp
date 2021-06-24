@@ -27,6 +27,8 @@
 (defconstant +FAIL+ 0)
 (defconstant +INT_CANCEL+ 2)
 
+(defvar *msssql-error-output* *error-output*)
+
 (define-condition mssql-error (error)
   ((messages :initarg :messages :initform nil)))
 
@@ -99,7 +101,7 @@
                        (error 'mssql-error :messages (reverse  *error-message-list*)))
                      (progn
                        (when *error-message-list*
-                         (format t "~{~A~^~%~}~%" *error-message-list*))
+                         (format *msssql-error-output* "~{~A~^~%~}~%" *error-message-list*))
                        result)))))))
       `(defcfun (,foreign-name ,lisp-name) ,return-type ,@args)))
 
