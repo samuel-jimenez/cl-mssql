@@ -90,7 +90,7 @@
                                            (= val +FAIL+)))
                          (:check-null-pointer '(lambda (val)
                                                 (null-pointer-p val))))))
-        `(progn 
+        `(progn
            (defcfun (,foreign-name ,impl-name) ,return-type ,@args)
            (defun ,lisp-name ,simplify-args
              (let ((*error-message-list* nil))

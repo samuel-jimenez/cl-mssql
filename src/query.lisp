@@ -139,7 +139,7 @@
              (:syb-int8 (unsigned-to-signed (mem-ref data :unsigned-int) 8))
              (:syb-real (mem-ref data :float))
              (:syb-flt8 (mem-ref data :double))
-             ((:syb-datetime :syb-datetime4 :syb-msdate :syb-mstime)
+             ((:syb-datetime :syb-datetime4 :syb-msdate :syb-mstime :syb-msdatetimeoffset)
               (with-foreign-pointer (%buf +numeric-buf-sz+)
                 (let ((count
                        (%dbconvert %dbproc
